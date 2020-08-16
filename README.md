@@ -20,6 +20,26 @@ After recording, it looks like:
 
 [obs-recording-1024x768.mp4](obs-recording-1024x768.mp4)
 
+You can also use [µStreamer (aka uStreamer)](https://github.com/pikvm/ustreamer)
+to start a [Motion JPEG (aka MJPEG)](https://en.wikipedia.org/wiki/Motion_JPEG)
+streaming web server at http://localhost:8080 with:
+
+```bash
+./ustreamer \
+    --format jpeg \
+    --resolution 1280x720 \
+    --desired-fps 15 \
+    --drop-same-frames 5 \
+    --slowdown
+```
+
+**NB** You should play with the values of the `--desired-fps` and
+`--drop-same-frames` arguments to minimize the CPU usage of ustreamer and the
+web browser.
+
+**NB** If the image is blurred, check the resolution at the OS level with the
+`fbset` or `xrandr` command, and use it in the ustream `--resolution` argument.
+
 ## details
 
 lsusb details:
